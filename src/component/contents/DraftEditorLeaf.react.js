@@ -117,6 +117,8 @@ class DraftEditorLeaf extends React.Component {
     return (
       leafNode.textContent !== nextProps.text ||
       nextProps.styleSet !== this.props.styleSet ||
+      nextProps.customStyleMap !== this.props.customStyleMap ||
+      nextProps.customStyleFn !== this.props.customStyleFn ||
       nextProps.forceSelection
     );
   }
