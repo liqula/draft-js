@@ -65,6 +65,8 @@ class DraftEditorBlock extends React.Component {
     return (
       this.props.block !== nextProps.block ||
       this.props.tree !== nextProps.tree ||
+      this.props.customStyleMap !== nextProps.customStyleMap ||
+      this.props.customStyleFn !== nextProps.customStyleFn ||
       this.props.direction !== nextProps.direction ||
       (
         isBlockOnSelectionEdge(

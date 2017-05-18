@@ -61,6 +61,11 @@ class DraftEditorContents extends React.Component {
       return true;
     }
 
+    if (this.props.customStyleMap !== nextProps.customStyleMap ||
+        this.props.customStyleFn !== nextProps.customStyleFn) {
+      return true;
+    }
+
     const nextNativeContent = nextEditorState.getNativelyRenderedContent();
 
     const wasComposing = prevEditorState.isInCompositionMode();
