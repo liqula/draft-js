@@ -43,7 +43,6 @@ var DELIMITER = '.';
  * preserved and the new match is discarded.
  */
 class CompositeDraftDecorator {
-  _decorators: Array<DraftDecorator>;
 
   constructor(decorators: Array<DraftDecorator>) {
     // Copy the decorator array, since we use this array order to determine

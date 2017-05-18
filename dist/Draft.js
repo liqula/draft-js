@@ -3502,7 +3502,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  DraftEditorBlock.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps) {
-	    return this.props.block !== nextProps.block || this.props.tree !== nextProps.tree || this.props.direction !== nextProps.direction || isBlockOnSelectionEdge(nextProps.selection, nextProps.block.getKey()) && nextProps.forceSelection;
+	    return this.props.block !== nextProps.block || this.props.tree !== nextProps.tree || this.props.customStyleMap !== nextProps.customStyleMap || this.props.customStyleFn !== nextProps.customStyleFn || this.props.direction !== nextProps.direction || isBlockOnSelectionEdge(nextProps.selection, nextProps.block.getKey()) && nextProps.forceSelection;
 	  };
 
 	  /**
@@ -6833,6 +6833,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var nowHasFocus = nextEditorState.getSelection().getHasFocus();
 
 	    if (didHaveFocus !== nowHasFocus) {
+	      return true;
+	    }
+
+	    if (this.props.customStyleMap !== nextProps.customStyleMap || this.props.customStyleFn !== nextProps.customStyleFn) {
 	      return true;
 	    }
 

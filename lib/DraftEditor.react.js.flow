@@ -69,64 +69,6 @@ type State = {
  * state of the editor. See `DraftEditorProps` for details.
  */
 class DraftEditor extends React.Component {
-  props: DraftEditorProps;
-  state: State;
-
-  static defaultProps: DraftEditorDefaultProps = {
-    blockRenderMap: DefaultDraftBlockRenderMap,
-    blockRendererFn: emptyFunction.thatReturnsNull,
-    blockStyleFn: emptyFunction.thatReturns(''),
-    keyBindingFn: getDefaultKeyBinding,
-    readOnly: false,
-    spellCheck: false,
-    stripPastedStyles: false
-  };
-
-  _blockSelectEvents: boolean;
-  _clipboard: ?BlockMap;
-  _handler: ?Object;
-  _dragCount: number;
-  _internalDrag: boolean;
-  _editorKey: string;
-  _placeholderAccessibilityID: string;
-  _latestEditorState: EditorState;
-  _pendingStateFromBeforeInput: void | EditorState;
-
-  /**
-   * Define proxies that can route events to the current handler.
-   */
-  _onBeforeInput: Function;
-  _onBlur: Function;
-  _onCharacterData: Function;
-  _onCompositionEnd: Function;
-  _onCompositionStart: Function;
-  _onCopy: Function;
-  _onCut: Function;
-  _onDragEnd: Function;
-  _onDragOver: Function;
-  _onDragStart: Function;
-  _onDrop: Function;
-  _onInput: Function;
-  _onFocus: Function;
-  _onKeyDown: Function;
-  _onKeyPress: Function;
-  _onKeyUp: Function;
-  _onMouseDown: Function;
-  _onMouseUp: Function;
-  _onPaste: Function;
-  _onSelect: Function;
-
-  focus: () => void;
-  blur: () => void;
-  setMode: (mode: DraftEditorModes) => void;
-  exitCurrentMode: () => void;
-  restoreEditorDOM: (scrollPosition?: DraftScrollPosition) => void;
-  setClipboard: (clipboard: ?BlockMap) => void;
-  getClipboard: () => ?BlockMap;
-  getEditorKey: () => string;
-  update: (editorState: EditorState) => void;
-  onDragEnter: () => void;
-  onDragLeave: () => void;
 
   constructor(props: DraftEditorProps) {
     super(props);
@@ -181,6 +123,11 @@ class DraftEditor extends React.Component {
    * Build a method that will pass the event to the specified handler method.
    * This allows us to look up the correct handler function for the current
    * editor mode, if any has been specified.
+   */
+
+
+  /**
+   * Define proxies that can route events to the current handler.
    */
   _buildHandler(eventName: string): Function {
     return e => {
@@ -389,4 +336,13 @@ class DraftEditor extends React.Component {
   }
 }
 
+DraftEditor.defaultProps = {
+  blockRenderMap: DefaultDraftBlockRenderMap,
+  blockRendererFn: emptyFunction.thatReturnsNull,
+  blockStyleFn: emptyFunction.thatReturns(''),
+  keyBindingFn: getDefaultKeyBinding,
+  readOnly: false,
+  spellCheck: false,
+  stripPastedStyles: false
+};
 module.exports = DraftEditor;

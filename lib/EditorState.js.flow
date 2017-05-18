@@ -66,7 +66,6 @@ var defaultRecord: EditorStateRecordType = {
 var EditorStateRecord = Record(defaultRecord);
 
 class EditorState {
-  _immutable: EditorStateRecord;
 
   static createEmpty(decorator?: ?DraftDecoratorType): EditorState {
     return EditorState.createWithContent(ContentState.createFromText(''), decorator);
