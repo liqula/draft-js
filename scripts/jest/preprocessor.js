@@ -16,6 +16,7 @@ var path = require('path');
 module.exports = {
   process(src, filename) {
     var options = {
+      plugins: ['transform-class-properties'],
       presets: [fbjsConfigurePreset({rewriteModules: {map: moduleMap}})],
       filename: filename,
       retainLines: true,

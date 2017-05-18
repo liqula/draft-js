@@ -43,6 +43,7 @@ var paths = {
 };
 
 var babelOptsJS = {
+  plugins: ['transform-class-properties'],
   presets: [
     fbjsConfigurePreset({
       stripDEV: true,
@@ -52,6 +53,7 @@ var babelOptsJS = {
 };
 
 var babelOptsFlow = {
+  plugins: ['transform-class-properties'],
   presets: [
     fbjsConfigurePreset({
       target: 'flow',
